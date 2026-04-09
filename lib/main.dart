@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-// Import all first six concept files from the screens folder
+// Import all concept files from the screens folder
 import 'screens/concept1_basic_navigation.dart';
 import 'screens/concept2_passing_data.dart';
 import 'screens/concept3_named_route.dart';
 import 'screens/concept4_named-routes_with_arguments.dart';
 import 'screens/concept5_bottom_navigation.dart';
 import 'screens/concept6_drawer_navigation.dart';
+import 'screens/concept7_go_router.dart';  // ADDED: Concept 7 - go_router
 
 void main() {
   runApp(const NavigationConceptSelector());
@@ -40,7 +41,7 @@ class NavigationConceptSelector extends StatelessWidget {
       'description': 'Navigate using string names (like URLs)',
       'icon': Icons.signpost,
       'color': Colors.teal,
-      'file': 'screens/concept3_named_routes.dart',
+      'file': 'screens/concept3_named_route.dart',
       'route': 'Concept 3',
     },
     {
@@ -49,14 +50,14 @@ class NavigationConceptSelector extends StatelessWidget {
       'description': 'Pass data using named routes',
       'icon': Icons.message,
       'color': Colors.indigo,
-      'file': 'screens/concept4_named_routes_with_arguments.dart',
+      'file': 'screens/concept4_named-routes_with_arguments.dart',
       'route': 'Concept 4',
     },
     {
       'id': 5,
       'title': 'Concept 5: Bottom Navigation Bar',
       'description': 'Switch between main app sections',
-      'icon': Icons.navigation, // ✅ FIXED ICON
+      'icon': Icons.navigation,
       'color': Colors.pink,
       'file': 'screens/concept5_bottom_navigation.dart',
       'route': 'Concept 5',
@@ -69,6 +70,16 @@ class NavigationConceptSelector extends StatelessWidget {
       'color': Colors.orange,
       'file': 'screens/concept6_drawer_navigation.dart',
       'route': 'Concept 6',
+    },
+    // ADDED: Concept 7 - go_router
+    {
+      'id': 7,
+      'title': 'Concept 7: go_router (Declarative Routing)',
+      'description': 'URL-based routing, path parameters, query params, route guards, ShellRoute',
+      'icon': Icons.link,
+      'color': Colors.deepPurple,
+      'file': 'screens/concept7_go_router.dart',
+      'route': 'Concept 7',
     },
   ];
 
@@ -172,6 +183,14 @@ class HomeScreen extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (_) => const Concept6App()),
+        );
+        break;
+
+      // ADDED: Concept 7 navigation
+      case 7:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const Concept7App()),
         );
         break;
     }
